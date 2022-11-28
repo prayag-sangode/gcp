@@ -34,3 +34,6 @@ gcloud iam service-accounts keys list  --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_
 
 #cat serviceaccount.json | base64 -w0
 #cat serviceaccount.json | tr -s '\n' ' '
+echo "Service Account Name is:" $SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
+echo "GCP Project/ID is:" $GCP_PROJECT_ID
+
