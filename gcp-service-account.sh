@@ -20,7 +20,7 @@ gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME
 
 #Assign permission to service account # gcloud iam roles list 
 gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/editor
-gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role/iam.securityAdmin
+gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/iam.securityAdmin
 
 #gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
 #gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/compute.admin
