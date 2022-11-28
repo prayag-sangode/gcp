@@ -15,6 +15,7 @@ export SERVICE_ACCOUNT_NAME=GCP-TF-SA
 gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME
 
 #Assign permission to service account
+#gcloud iam roles list 
 gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/editor
 
 #gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
