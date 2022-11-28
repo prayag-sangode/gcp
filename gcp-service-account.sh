@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author : Prayag Sangode
+#Author : Prayag Sangode
 #Create a service account in GCP
 
 #Set project-id
