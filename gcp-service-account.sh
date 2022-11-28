@@ -23,3 +23,10 @@ gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SER
 #gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/recommender.firewallAdmin
 #gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/container.admin
 #gcloud projects add-iam-policy-binding $GCP_PROJECT --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/container.clusterViewer
+
+#gcloud iam service-accounts keys create serviceaccount.json --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
+#gcloud iam service-accounts keys list  --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
+
+#cat serviceaccount.json | base64 -w0
+#cat serviceaccount.json | tr -s '\n' ' '
+
