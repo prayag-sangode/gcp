@@ -1,3 +1,6 @@
+#!/bin/bash
+# Author : Prayag Sangode
+# 
 export GCP_PROJECT_ID=$(gcloud projects list | grep -i "project_id" | awk '{print $2}')
 echo $GCP_PROJECT_ID
 
@@ -44,4 +47,10 @@ gcloud iam service-accounts add-iam-policy-binding "$SERVICE_ACCOUNT_EMAIL" --pr
 
 gcloud iam workload-identity-pools providers describe $PROVIDER --project=$GCP_PROJECT_ID --location="global" --workload-identity-pool=$POOL --format="value(name)"
 
-export  GOOGLE_APPLICATION_CREDENTIALS=.gcp_temp_cred.json
+      
+      #  echo ${CI_JOB_JWT_V2} > .ci_job_jwt_file
+      #  gcloud iam workload-identity-pools create-cred-config projects/67486183756/locations/global/workloadIdentityPools/gitlab-oidc-pool1/providers/gitlab-oidc-provider1 --service-account="GCP-TF-SA@gcp-cloud-devops-368909.iam.gserviceaccount.com" --output-file=.gcp_temp_cred.json --credential-source-file=.ci_job_jwt_file
+      #  export  GOOGLE_APPLICATION_CREDENTIALS=.gcp_temp_cred.json
+      #  gcloud auth login --cred-file=`pwd`/.gcp_temp_cred.json --project=gcp-cloud-devops-368909
+      #  gcloud auth list
+
