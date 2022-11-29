@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author : Prayag Sangode
 # 
-export GCP_PROJECT_ID=$(gcloud projects list | grep -i "project_id" | awk '{print $2}')
+export PROJECT_ID=$(gcloud config get project)
 echo $GCP_PROJECT_ID
 
 export PROVIDER="gitlab-oidc-provider1"
