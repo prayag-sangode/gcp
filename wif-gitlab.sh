@@ -1,19 +1,19 @@
 #!/bin/bash
 # Author : Prayag Sangode
 # 
-export PROJECT_ID=$(gcloud config get project)
+export GCP_PROJECT_ID=$(gcloud config get project)
 echo $GCP_PROJECT_ID
 
-export PROVIDER="gitlab-oidc-provider1"
+export PROVIDER="gitlab-oidc-provider"
 echo $PROVIDER
 
-export POOL="gitlab-oidc-pool1"
+export POOL="gitlab-oidc-pool"
 echo $POOL
 
 export ISSUER=https://gitlab.com
 echo $ISSUER
 
-export SERVICE_ACCOUNT_EMAIL="GCP-TF-SA@gcp-cloud-devops-368909.iam.gserviceaccount.com"
+export SERVICE_ACCOUNT_EMAIL="GCP-SA@gcp-cloud-devops-368909.iam.gserviceaccount.com"
 echo $SERVICE_ACCOUNT_EMAIL
 
 export REPO="prayag-sangode/gcp-tf.git"
