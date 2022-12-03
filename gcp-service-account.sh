@@ -7,10 +7,10 @@ export GCP_PROJECT_ID=$(gcloud projects list | grep -i "project_id" | awk '{prin
 echo $GCP_PROJECT_ID
 
 #Set Service Account Name
-export SERVICE_ACCOUNT_NAME=GCP-TF-SA
+export SERVICE_ACCOUNT_NAME=GCP-SA
 echo $SERVICE_ACCOUNT_NAME
-#export SERVICE_ACCOUNT_NAME=GCP-TF-Storage-SA
-#export SERVICE_ACCOUNT_NAME=GCP-TF-Compute-SA
+#export SERVICE_ACCOUNT_NAME=GCP-Storage-SA
+#export SERVICE_ACCOUNT_NAME=GCP-Compute-SA
 
 #Enable services
 gcloud services enable containerregistry.googleapis.com container.googleapis.com compute.googleapis.com storage-api.googleapis.com storage.googleapis.com
