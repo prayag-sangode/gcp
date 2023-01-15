@@ -1,4 +1,4 @@
-ISSUER=http://35.229.246.122:8080/
+ISSUER=https://IP:8080/
 PROJECT=mypoc-374706
 POOL=jenkins-oidc-pool
 PROVIDER=static
