@@ -35,3 +35,7 @@ gcloud iam service-accounts keys list  --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_
 echo "Service Account Name is:" $SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
 echo "GCP Project/ID is:" $GCP_PROJECT_ID
 
+# Create and download the service account key (JSON file)
+gcloud iam service-accounts keys create $SERVICE_ACCOUNT_NAME-key.json --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
+echo "JSON file downloaded in current directory"
+
