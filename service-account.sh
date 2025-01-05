@@ -24,6 +24,9 @@ fi
 # Assign permissions to the service account
 gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/editor
 
+# Add the storage.objectAdmin role for managing objects in GCS
+gcloud projects add-iam-policy-binding $GCP_PROJECT_ID --member=serviceAccount:$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.objectAdmin
+
 # Create and download the service account key (JSON file)
 gcloud iam service-accounts keys create $SERVICE_ACCOUNT_NAME-key.json --iam-account=$SERVICE_ACCOUNT_NAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
 
