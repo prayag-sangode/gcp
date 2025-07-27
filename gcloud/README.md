@@ -90,6 +90,12 @@ You should see a list of GKE cluster nodes.
 
 ---
 
+## Install hel
+
+```bash
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+```
+
 ## Optional: Clean Up
 
 To remove the SDK (if needed):
