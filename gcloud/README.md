@@ -90,7 +90,7 @@ You should see a list of GKE cluster nodes.
 
 ---
 
-## Install hel
+## Install helm
 
 ```bash
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
