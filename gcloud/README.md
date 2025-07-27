@@ -52,12 +52,26 @@ gcloud components install kubectl
 
 ---
 
-## Authenticate to Your GKE Cluster
+## Create and Authenticate to Your GKE Cluster
+
+### Set project
 
 ```bash
-gcloud container clusters get-credentials <CLUSTER_NAME> \
-  --region <REGION> \
-  --project <PROJECT_ID>
+gcloud config set project fiery-plate-461110-v0
+```
+
+### Set zone
+```bash
+gcloud config set compute/zone us-central1-a 
+```
+
+### Create GKE
+
+```bash
+gcloud container clusters create my-cluster \
+  --zone=us-central1-a \
+  --num-nodes=1 \
+  --project=fiery-plate-461110-v0
 ```
 
 This updates your `~/.kube/config` with credentials and endpoint info.
