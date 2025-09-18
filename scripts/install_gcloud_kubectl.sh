@@ -22,3 +22,6 @@ gcloud components install kubectl --quiet
 # Confirm installation
 gcloud version
 kubectl version --client
+
+# After installing gcloud, authenticate using
+# gcloud auth login --no-launch-browser
