@@ -1,15 +1,12 @@
 # Zonal Private GKE Cluster with Bastion Host
 
-## Enable Required APIs
+### Enable Required APIs
 
 ```bash
 gcloud services enable compute.googleapis.com container.googleapis.com \
   --project=gpc-project-101
 ```
-
----
-
-## Create Custom VPC & Subnets
+### Create Custom VPC & Subnets
 
 ```bash
 # Create VPC
@@ -32,9 +29,7 @@ gcloud compute networks subnets create private-subnet \
   --project=gpc-project-101
 ```
 
----
-
-## Firewall Rules
+### Firewall Rules
 
 ```bash
 # Allow SSH to bastion from your workstation IP
@@ -46,9 +41,7 @@ gcloud compute firewall-rules create allow-ssh-to-bastion \
   --project=gpc-project-101
 ```
 
----
-
-## Create Bastion VM
+### Create Bastion VM
 
 ```bash
 gcloud compute instances create bastion-vm \
@@ -63,9 +56,7 @@ gcloud compute instances create bastion-vm \
   --project=gpc-project-101
 ```
 
----
-
-## Create Zonal Private GKE Cluster
+### Create Zonal Private GKE Cluster
 
 ```bash
 gcloud container clusters create private-gke-cluster \
@@ -89,9 +80,7 @@ gcloud container clusters create private-gke-cluster \
 > 3 worker nodes in **private subnet** (`10.0.2.0/24`), **1 zone (us-central1-a)**, each node **e2-medium + 30GB pd-standard disk**.
 > Bastion subnet (`10.0.1.0/24`) is authorized to access the master.
 
----
-
-## 6. Access Cluster from Bastion
+### Access Cluster from Bastion
 
 SSH into bastion:
 
@@ -99,14 +88,14 @@ SSH into bastion:
 gcloud compute ssh bastion-vm --zone=us-central1-a --project=gpc-project-101
 ```
 
-Install gcloud and kubectl on bastion host using script:
+### Install gcloud and kubectl on bastion host using script:
 
 ```bash
 wget https://github.com/prayag-sangode/gcp/blob/main/scripts/install_gcloud_kubectl.sh
 bash install_gcloud_kubectl.sh
 ```
 
-Get gke-admin-key.json using script:
+### Get gke-admin-key.json using script
 Run script on a system which already has gcloud installed and is already authenticated and copy install_gcloud_kubectl.sh to bastion host
 
 ```bash
@@ -114,13 +103,13 @@ wget https://github.com/prayag-sangode/gcp/blob/main/scripts/create_sa_key.sh
 bash create_sa_key.sh
 ```
 
-After installing gcloud, authenticate using :
+### After installing gcloud, authenticate using :
 
 ```bash
 gcloud auth activate-service-account --key-file=gke-admin-key.json
 ```
 
-Get cluster credentials:
+### Get cluster credentials:
 
 ```bash
 gcloud container clusters get-credentials private-gke-cluster \
@@ -128,7 +117,7 @@ gcloud container clusters get-credentials private-gke-cluster \
   --project=gpc-project-101
 ```
 
-Test:
+### Test:
 
 ```bash
 kubectl get nodes
@@ -138,7 +127,7 @@ Should show 3 nodes ready.
 
 ---
 
-## Cleanup
+### Cleanup
 
 ```bash
 # Delete cluster
@@ -194,5 +183,4 @@ gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
 ```
 
 ---
-
 
