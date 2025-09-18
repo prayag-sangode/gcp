@@ -125,7 +125,6 @@ kubectl get nodes
 
 Should show 3 nodes ready.
 
----
 
 ### Cleanup
 
@@ -152,7 +151,6 @@ gcloud compute networks subnets delete private-subnet \
 gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
 ```
 
----
 
 ```
                           ┌───────────────────────────────┐
