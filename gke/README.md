@@ -149,8 +149,6 @@ gcloud compute networks subnets delete private-subnet \
 gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
 ```
 
----
-
                           ┌───────────────────────────────┐
                           │    GCP Project: gpc-project-101 │
                           └───────────────────────────────┘
@@ -177,4 +175,3 @@ gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
                          │ Private Endpoint: 172.16.0.2 │
                          └───────────────────────────────┘
 
-```
