@@ -98,6 +98,7 @@ bash install_gcloud_kubectl.sh
 ```bash
 gcloud auth login --no-launch-browser
 ```
+or 
 
 ### Get gke-admin-key.json using script
 Run script on a system which already has gcloud installed and is already authenticated and copy install_gcloud_kubectl.sh to bastion host
