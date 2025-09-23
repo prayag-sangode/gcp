@@ -239,5 +239,4 @@ gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
                          └───────────────────────────────┘
 ```
 
----
 
