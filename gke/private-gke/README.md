@@ -200,6 +200,19 @@ gcloud compute instances delete bastion-vm \
 gcloud compute firewall-rules delete allow-ssh-to-bastion \
   --quiet --project=gpc-project-101
 
+# Delete the Cloud NAT configuration
+
+gcloud compute routers nats delete my-nat-config \
+    --router=my-nat-router \
+    --region=us-central1 \
+    --project=gpc-project-101
+
+# Delete the Cloud Router
+gcloud compute routers delete my-nat-router \
+    --region=us-central1 \
+    --project=gpc-project-101
+
+
 # Delete subnets & VPC
 gcloud compute networks subnets delete public-subnet \
   --region=us-central1 --quiet --project=gpc-project-101
@@ -208,8 +221,8 @@ gcloud compute networks subnets delete private-subnet \
   --region=us-central1 --quiet --project=gpc-project-101
 
 gcloud compute networks delete my-vpc --quiet --project=gpc-project-101
-```
 
+```
 
 ```
                           ┌───────────────────────────────┐
