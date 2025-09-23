@@ -91,8 +91,12 @@ gcloud compute ssh bastion-vm --zone=us-central1-a --project=gpc-project-101
 ### Install gcloud and kubectl on bastion host using script:
 
 ```bash
-wget https://github.com/prayag-sangode/gcp/blob/main/scripts/install_gcloud_kubectl.sh
+wget https://raw.githubusercontent.com/prayag-sangode/gcp/refs/heads/main/scripts/install_gcloud_kubectl.sh
 bash install_gcloud_kubectl.sh
+```
+### Authneticate gcloud
+```bash
+gcloud auth login --no-launch-browser
 ```
 
 ### Get gke-admin-key.json using script
