@@ -41,6 +41,60 @@ gcloud compute firewall-rules create allow-ssh-to-bastion \
   --project=gpc-project-101
 ```
 
+### We created a Zonal Private GKE Cluster with private nodes, which means:
+
+```bash
+Nodes have no public IPs → they cannot access the internet directly.
+Only your bastion VM in the public subnet has internet access.
+In GCP, private nodes need Cloud NAT to access the internet for:
+Downloading Helm chart dependencies.
+Jenkins plugin downloads.
+Any outbound API calls.
+```
+
+### Create a Cloud Router in the same region:
+
+```bash
+gcloud compute routers create my-nat-router \
+    --network=my-vpc \
+    --region=us-central1 \
+    --project=gpc-project-101
+```
+
+### Create a Cloud NAT for the private subnet:
+
+```bash
+gcloud compute routers nats create my-nat-config \
+    --router=my-nat-router \
+    --region=us-central1 \
+    --nat-all-subnet-ip-ranges \
+    --auto-allocate-nat-external-ips \
+    --project=gpc-project-101
+```
+
+#### Explanation:
+```bash
+--nat-all-subnet-ip-ranges: NAT will cover all subnets in your VPC (or you can specify private-subnet only).
+
+--auto-allocate-nat-external-ips: GCP automatically assigns external IPs for NAT.
+```
+
+### Verify NAT connectivity:
+
+### SSH into a private node:
+
+```bash
+kubectl get nodes -o wide
+gcloud compute ssh <PRIVATE_NODE_NAME> --zone=us-central1-a
+```
+
+Test internet access:
+```bash
+curl https://updates.jenkins.io
+```
+
+It should succeed.
+
 ### Create Bastion VM
 
 ```bash
